@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioinfo Pipeline</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Bioinfo Pipeline - Interface Web</h1>
+    <form id="filter-form">
+        <label for="min_af">Min AF:</label>
+        <input type="number" id="min_af" name="min_af" step="0.01" value="0.0">
+        <label for="max_af">Max AF:</label>
+        <input type="number" id="max_af" name="max_af" step="0.01" value="1.0">
+        <label for="min_dp">Min DP:</label>
+        <input type="number" id="min_dp" name="min_dp" step="1" value="0">
+        <button type="button" onclick="filterVariants()">Filtrar</button>
+    </form>
+
+    <table id="variants-table">
+        <thead>
+            <tr>
+                <th>CHROM</th>
+                <th>POS</th>
+                <th>REF</th>
+                <th>ALT</th>
+                <th>QUAL</th>
+                <th>FILTER</th>
+                <th>DP</th>
+                <th>GENE</th>
+                <th>RSID</th>
+                <th>GNOMAD_AF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os resultados serão injetados aqui -->
+        </tbody>
+    </table>
+
+    <script>
+        async function filterVariants() {
+            const min_af = document.getElementById('min_af').value;
+            const max_af = document.getElementById('max_af').value;
+            const min_dp = document.getElementById('min_dp').value;
+
+            const response = await fetch(`/filter?min_af=${min_af}&max_af=${max_af}&min_dp=${min_dp}`);
+            const data = await response.json();
+
+            const tbody = document.querySelector('#variants-table tbody');
+            tbody.innerHTML = '';
+
+            data.forEach(variant => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${variant.CHROM}</td>
+                    <td>${variant.POS}</td>
+                    <td>${variant.REF}</td>
+                    <td>${variant.ALT}</td>
+                    <td>${variant.QUAL}</td>
+                    <td>${variant.FILTER}</td>
+                    <td>${variant.DP}</td>
+                    <td>${variant.GENE || ''}</td>
+                    <td>${variant.RSID || ''}</td>
+                    <td>${variant.GNOMAD_AF || ''}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

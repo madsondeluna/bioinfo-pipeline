@@ -1,0 +1,23 @@
+import os
+
+configfile: "config.yaml"
+
+vcf_in = config["vcf_input"]
+final_table = "results/variants_annotated.tsv"
+
+rule all:
+    input:
+        final_table
+
+rule annotate_variants:
+    input:
+        vcf_in
+    output:
+        final_table
+    conda:
+        "envs/pipeline_env.yaml"
+    shell:
+        """
+        python scripts/annotate_variants.py {input} {output}
+        """
+

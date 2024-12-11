@@ -1,0 +1,10 @@
+name: bioinfo_pipeline
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.9
+  - snakemake
+  - requests
+  - pandas
+  - pyvcf
