@@ -7,4 +7,4 @@ dependencies:
   - snakemake
   - requests
   - pandas
-  - pyvcf
+  - vcfpy
