@@ -79,7 +79,7 @@ Script de testes e validação de código para um pipeline de bioinformática qu
 1. Clone o Repositório:
 
    bash
-   git clone https://github.com/seu-usuario/bioinfo-pipeline.git
+   git clone https://github.com/seu-usuario/pipeline-code-validator.git
    cd bioinfo-pipeline
    
 
