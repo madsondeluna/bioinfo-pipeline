@@ -162,9 +162,3 @@ Script de testes e validação de código para um pipeline de bioinformática qu
   bash
   curl "http://localhost:5000/variants?min_af=0.01&max_af=0.05&min_dp=10"
   
-
-## Contribuindo
-
-- Sugestões de melhorias são bem-vindas!
-- Abra uma issue ou envie um pull request no repositório GitHub.
-
