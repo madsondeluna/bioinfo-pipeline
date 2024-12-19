@@ -4,33 +4,35 @@ Este projeto implementa um pipeline de bioinformática para anotar variantes gen
 
 ## Estrutura do Projeto
 
+- **pipeline/**  
+  - `Snakefile`  
+  - `config.yaml`  
+  - **scripts/**  
+    - `annotate_variants.py`  
+  - **envs/**  
+    - `pipeline_env.yaml`  
 
-bioinfo-pipeline/
-├─ pipeline/
-│  ├─ Snakefile
-│  ├─ config.yaml
-│  ├─ scripts/
-│  │  ├─ annotate_variants.py
-│  └─ envs/
-│     └─ pipeline_env.yaml
-├─ api/
-│  ├─ app.py
-│  ├─ requirements.txt
-│  └─ data/
-├─ web/
-│  ├─ app.py
-│  ├─ templates/
-│  │  └─ index.html
-│  ├─ static/
-│  │  └─ style.css
-│  ├─ requirements.txt
-├─ data/
-│  └─ input_variants.vcf (arquivo de entrada)
-├─ results/
-│  └─ variants_annotated.tsv (gerado pelo pipeline)
-├─ Dockerfile
-└─ README.md
+- **api/**  
+  - `app.py`  
+  - `requirements.txt`  
+  - **data/**  
 
+- **web/**  
+  - `app.py`  
+  - **templates/**  
+    - `index.html`  
+  - **static/**  
+    - `style.css`  
+  - `requirements.txt`  
+
+- **data/**  
+  - `input_variants.vcf`  
+
+- **results/**  
+  - `variants_annotated.tsv`  
+
+- `Dockerfile`  
+- `README.md`  
 
 ### Descrição dos Diretórios e Arquivos
 
