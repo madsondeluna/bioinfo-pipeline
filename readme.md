@@ -1,4 +1,4 @@
-# Pipeline - Anotação de Variantes (Versão de Testes) - MVP
+# Pipeline - Anotação de Variantes (Versão de Testes)
 
 Este projeto implementa um pipeline de bioinformática para anotar variantes genômicas a partir de um arquivo VCF. O pipeline utiliza a API do MyVariant.info para buscar informações como gene associado, rsID (dbSNP) e frequências alélicas. Os resultados são servidos por uma API (Flask) e apresentados em uma interface web interativa, onde é possível filtrar variantes por frequência (AF) e profundidade (DP).
 
